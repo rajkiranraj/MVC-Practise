@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Mycontroller;
 
 Route::get('/', function () {
     return view('home');
@@ -14,4 +16,8 @@ Route::get('/about/{name}',function($name){
 Route::view('/contactus','contactus');
 // Route::get('/contact',fn()=>view('contact'));
 
+Route::redirect('/error','/home');//redirect
+
+//view shown by controller
+Route::get('display',[Mycontroller::class,'Display']);
 
